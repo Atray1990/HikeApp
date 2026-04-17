@@ -14,8 +14,9 @@ protocol CharacterDetailRouting {
 
 extension CharacterDetailRouting {
     static func push(from vc: UIViewController, character: Character) {
-        let playerVC = VideoPlayerViewController(videos: videos, playingIndex: index)
-        vc.navigationController?.pushViewController(playerVC, animated: true)
+        let viewModel = CharacterDetailViewModel(character: character)
+        let detailVc = CharacterDetailViewController(viewModel: viewModel)
+        vc.navigationController?.pushViewController(detailVc, animated: true)
     }
 }
 

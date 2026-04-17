@@ -10,7 +10,7 @@ import SDWebImage
 
 final class CharacterDetailViewController: UIViewController {
     
-    private let character: Character? = nil
+    private let viewModel: CharacterDetailViewModel
     
     // MARK: - UI
     private let scrollView = UIScrollView()
@@ -24,8 +24,8 @@ final class CharacterDetailViewController: UIViewController {
     private let episodesTableView = UITableView()
     
     // MARK: - Init
-    init(character: Character? = nil) {
-        self.character = character
+    init(viewModel: CharacterDetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,10 +50,11 @@ final class CharacterDetailViewController: UIViewController {
             infoStack.axis = .vertical
             infoStack.spacing = 8
             
-            episodesTableView.dataSource = self
             episodesTableView.register(EpisodeCell.self, forCellReuseIdentifier: "EpisodeCell")
-            episodesTableView.isScrollEnabled = false
-            
+            episodesTableView.isScrollEnabled = true
+            episodesTableView.dataSource = self
+            episodesTableView.allowsSelection = false
+        
             imageView.layer.cornerRadius = 12
             imageView.clipsToBounds = true
             imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
@@ -63,40 +64,47 @@ final class CharacterDetailViewController: UIViewController {
             statusBadge.textAlignment = .center
             statusBadge.textColor = .white
             
-            [imageView, nameLabel, statusBadge, infoStack, episodesTableView].forEach {
-                contentStack.addArrangedSubview($0)
-            }
-            
-            scrollView.addSubview(contentStack)
-            view.addSubview(scrollView)
+        [imageView, nameLabel, statusBadge, infoStack].forEach {
+            contentStack.addArrangedSubview($0)
+        }
+
+        view.addSubview(scrollView)
+        view.addSubview(episodesTableView)
+        scrollView.addSubview(contentStack)
         }
     
     func setupConstraints() {
-            scrollView.translatesAutoresizingMaskIntoConstraints = false
-            contentStack.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        episodesTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
             
-            NSLayoutConstraint.activate([
-                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                
-                contentStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
-                contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-                contentStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
-            ])
-        }
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        
+            episodesTableView.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            episodesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            episodesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            episodesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            scrollView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
+            
+            contentStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
+            contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            contentStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+    }
     
     func configure() {
-        guard let character = character else {
-            return
-        }
-            nameLabel.text = character.name
+       
+        nameLabel.text = viewModel.character.name
             
-            statusBadge.text = " \(character.status) "
+        statusBadge.text = " \(viewModel.character.status) "
             statusBadge.backgroundColor = {
-                switch character.status.lowercased() {
+                switch viewModel.character.status.lowercased() {
                 case "alive": return .systemGreen
                 case "dead": return .systemRed
                 default: return .systemGray
@@ -104,10 +112,10 @@ final class CharacterDetailViewController: UIViewController {
             }()
             
             let fields = [
-                "Species: \(character.species)",
-                "Gender: \(character.gender)",
-                "Origin: \(character.origin.name)",
-                "Location: \(character.location.name)"
+                "Species: \(viewModel.character.species)",
+                "Gender: \(viewModel.character.gender)",
+                "Origin: \(viewModel.character.origin.name)",
+                "Location: \(viewModel.character.location.name)"
             ]
             
             fields.forEach {
@@ -117,24 +125,26 @@ final class CharacterDetailViewController: UIViewController {
                 infoStack.addArrangedSubview(label)
             }
             
-            if let url = URL(string: character.image) {
+            if let url = URL(string: viewModel.character.image) {
                 imageView.sd_setImage(with: url)
             }
+            
+        self.episodesTableView.reloadData()
         }
-        
-       
 }
 
 extension CharacterDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        character?.episode.count ?? 0
+        viewModel.numberOfEpisode
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        guard let episode = viewModel.getObjectAtIndexPath(indexPathRow: indexPath.row) else {
+            return UITableViewCell()
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as! EpisodeCell
-        cell.configure(character?.episode[indexPath.row])
+        cell.configure(episode)
         return cell
     }
 }
