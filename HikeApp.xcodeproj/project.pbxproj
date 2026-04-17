@@ -12,7 +12,18 @@
 		3FDE25B72F914C19004FE50F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDE25B62F914C19004FE50F /* Alamofire */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3F16D54E2F92426600652335 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FDE25792F9149F5004FE50F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FDE25802F9149F5004FE50F;
+			remoteInfo = HikeApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3F16D54A2F92426600652335 /* HikeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HikeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDE25812F9149F5004FE50F /* HikeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HikeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -27,6 +38,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		3F16D54B2F92426600652335 /* HikeAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HikeAppTests;
+			sourceTree = "<group>";
+		};
 		3FDE25832F9149F5004FE50F /* HikeApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -38,6 +54,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3F16D5472F92426600652335 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FDE257E2F9149F5004FE50F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				3FDE25832F9149F5004FE50F /* HikeApp */,
+				3F16D54B2F92426600652335 /* HikeAppTests */,
 				3FDE25822F9149F5004FE50F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				3FDE25812F9149F5004FE50F /* HikeApp.app */,
+				3F16D54A2F92426600652335 /* HikeAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3F16D5492F92426600652335 /* HikeAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F16D5502F92426600652335 /* Build configuration list for PBXNativeTarget "HikeAppTests" */;
+			buildPhases = (
+				3F16D5462F92426600652335 /* Sources */,
+				3F16D5472F92426600652335 /* Frameworks */,
+				3F16D5482F92426600652335 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F16D54F2F92426600652335 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3F16D54B2F92426600652335 /* HikeAppTests */,
+			);
+			name = HikeAppTests;
+			packageProductDependencies = (
+			);
+			productName = HikeAppTests;
+			productReference = 3F16D54A2F92426600652335 /* HikeAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3FDE25802F9149F5004FE50F /* HikeApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FDE25942F9149F7004FE50F /* Build configuration list for PBXNativeTarget "HikeApp" */;
@@ -105,6 +153,10 @@
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
+					3F16D5492F92426600652335 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = 3FDE25802F9149F5004FE50F;
+					};
 					3FDE25802F9149F5004FE50F = {
 						CreatedOnToolsVersion = 26.3;
 					};
@@ -129,11 +181,19 @@
 			projectRoot = "";
 			targets = (
 				3FDE25802F9149F5004FE50F /* HikeApp */,
+				3F16D5492F92426600652335 /* HikeAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F16D5482F92426600652335 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FDE257F2F9149F5004FE50F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,6 +204,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F16D5462F92426600652335 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FDE257D2F9149F5004FE50F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,7 +220,55 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3F16D54F2F92426600652335 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FDE25802F9149F5004FE50F /* HikeApp */;
+			targetProxy = 3F16D54E2F92426600652335 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		3F16D5512F92426600652335 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Shashank.HikeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HikeApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HikeApp";
+			};
+			name = Debug;
+		};
+		3F16D5522F92426600652335 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Shashank.HikeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HikeApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HikeApp";
+			};
+			name = Release;
+		};
 		3FDE25952F9149F7004FE50F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = 3FDE25832F9149F5004FE50F /* HikeApp */;
@@ -342,6 +457,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F16D5502F92426600652335 /* Build configuration list for PBXNativeTarget "HikeAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F16D5512F92426600652335 /* Debug */,
+				3F16D5522F92426600652335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3FDE257C2F9149F5004FE50F /* Build configuration list for PBXProject "HikeApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
