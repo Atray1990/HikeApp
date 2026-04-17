@@ -1,0 +1,10 @@
+//
+//  Debug.xcconfig
+//  HikeApp
+//
+//  Created by shashank atray on 17/04/26.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+BASE_URL = rickandmortyapi.com/api
