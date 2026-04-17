@@ -10,7 +10,6 @@
 		3FDE25A62F914B47004FE50F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDE25A52F914B47004FE50F /* SDWebImage */; };
 		3FDE25A82F914B47004FE50F /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDE25A72F914B47004FE50F /* SDWebImageMapKit */; };
 		3FDE25B72F914C19004FE50F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDE25B62F914C19004FE50F /* Alamofire */; };
-		3FDE25B92F914C19004FE50F /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDE25B82F914C19004FE50F /* AlamofireDynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +43,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FDE25B72F914C19004FE50F /* Alamofire in Frameworks */,
-				3FDE25B92F914C19004FE50F /* AlamofireDynamic in Frameworks */,
 				3FDE25A82F914B47004FE50F /* SDWebImageMapKit in Frameworks */,
 				3FDE25A62F914B47004FE50F /* SDWebImage in Frameworks */,
 			);
@@ -92,7 +90,6 @@
 				3FDE25A52F914B47004FE50F /* SDWebImage */,
 				3FDE25A72F914B47004FE50F /* SDWebImageMapKit */,
 				3FDE25B62F914C19004FE50F /* Alamofire */,
-				3FDE25B82F914C19004FE50F /* AlamofireDynamic */,
 			);
 			productName = HikeApp;
 			productReference = 3FDE25812F9149F5004FE50F /* HikeApp.app */;
@@ -159,6 +156,8 @@
 /* Begin XCBuildConfiguration section */
 		3FDE25952F9149F7004FE50F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3FDE25832F9149F5004FE50F /* HikeApp */;
+			baseConfigurationReferenceRelativePath = Configuration/Development.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -221,6 +220,8 @@
 		};
 		3FDE25972F9149F7004FE50F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3FDE25832F9149F5004FE50F /* HikeApp */;
+			baseConfigurationReferenceRelativePath = Configuration/Development.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -395,11 +396,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3FDE25B52F914C19004FE50F /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		3FDE25B82F914C19004FE50F /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3FDE25B52F914C19004FE50F /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
