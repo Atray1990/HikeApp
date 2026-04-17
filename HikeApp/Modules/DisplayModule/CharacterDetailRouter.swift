@@ -23,3 +23,5 @@ extension CharacterDetailRouting {
 struct CharacterDetailRouter: CharacterDetailRouting {
     
 }
+
+

@@ -19,7 +19,9 @@ extension ServiceProviderProtocol {
         do {
             if let searchString, !searchString.isEmpty {
                 let request = GetCharacterSearchRequest(searchString: searchString)
-                return try await networkProvider.performNetworkRequest(request)
+                let data = try await networkProvider.performNetworkRequest(request)
+                CacheManager.sharedInstance.saveObject(data)
+                return data
             } else {
                 let request = GetCharacterListingRequest(nextUrlString: nextUrlString)
                 return try await networkProvider.performNetworkRequest(request)

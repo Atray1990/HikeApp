@@ -15,6 +15,11 @@ protocol CharacterListingTaskProtocol {
 extension CharacterListingTaskProtocol {
     
     func executeCharacterListingApi(nextUrlString: String? = nil, searchString: String?) async -> RickAndMortyCharacterResponse? {
+        
+        if !Reachability.isConnectedToNetwork(), let response = CacheManager.sharedInstance.getObject() {
+            return response
+        }
+        
         return await serviceProvider.getAllCharacterListing(nextUrlString: nextUrlString, searchString: searchString)
     }
     
