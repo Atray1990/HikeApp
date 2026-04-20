@@ -24,8 +24,9 @@ extension ServiceProviderProtocol {
                 return data
             } else {
                 let request = GetCharacterListingRequest(nextUrlString: nextUrlString)
+                let data =  try await networkProvider.performNetworkRequest(request)
                 CacheManager.sharedInstance.saveObject(data)
-                return try await networkProvider.performNetworkRequest(request)
+                return data
             }
         } catch {
             debugPrint(error.localizedDescription)
